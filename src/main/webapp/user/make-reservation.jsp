@@ -8,75 +8,82 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
+      background-color: #f9f9f9;
       margin: 0;
-      padding: 20px;
-    }
-
-    h1, h2 {
-      text-align: center;
+      padding: 0;
       color: #333;
     }
 
-    .message {
-      color: green;
+    h1 {
+      text-align: center;
+      padding: 20px 0;
+      margin: 0;
+      color: #007BFF;
+      border-bottom: 2px solid #ddd;
+    }
+
+    h2 {
+      text-align: center;
+      color: #444;
+      margin-top: 20px;
+    }
+
+    .message, .error {
       font-weight: bold;
       text-align: center;
       margin: 20px 0;
+      font-size: 16px;
+    }
+
+    .message {
+      color: #28a745;
     }
 
     .error {
-      color: red;
-      font-weight: bold;
-      text-align: center;
-      margin: 20px 0;
+      color: #dc3545;
     }
 
     table {
-      width: 100%;
+      width: 90%;
+      margin: 20px auto;
       border-collapse: collapse;
-      margin-top: 20px;
-      background: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       overflow: hidden;
     }
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-
-    th {
+    thead {
       background-color: #007BFF;
       color: white;
     }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
     }
 
-    tr:hover {
-      background-color: #f1f1f1;
+    tbody tr:hover {
+      background-color: #f2f2f2;
     }
 
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 10px;
     }
 
     form label {
-      font-size: 14px;
-      margin-top: 5px;
+      font-weight: bold;
     }
 
     form input, form button {
-      margin-top: 5px;
-      padding: 8px;
-      border-radius: 4px;
+      padding: 10px;
+      border-radius: 5px;
       border: 1px solid #ddd;
+      font-size: 14px;
     }
 
     form button {
@@ -84,7 +91,7 @@
       color: white;
       border: none;
       cursor: pointer;
-      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
     form button:hover {
@@ -92,16 +99,21 @@
     }
 
     a {
-      display: block;
+      display: inline-block;
       text-align: center;
-      margin: 20px 0;
+      margin: 20px auto;
       text-decoration: none;
-      color: #007BFF;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       font-size: 16px;
+      transition: background-color 0.3s ease;
     }
 
     a:hover {
-      text-decoration: underline;
+      background-color: #0056b3;
     }
 
     .no-rooms {
@@ -114,7 +126,6 @@
 <body>
 <h1>Make a Reservation</h1>
 
-<!-- Success or Error Messages -->
 <%
   String success = (String) request.getSession().getAttribute("success");
   if (success != null) {
@@ -132,7 +143,6 @@
 %>
 
 <%
-  // Retrieve the list of all rooms from the request
   List<Room> rooms = (List<Room>) request.getAttribute("rooms");
 %>
 
@@ -160,7 +170,6 @@
     <td><%= room.getEquipment() %></td>
     <td><%= room.isAvailability() ? "Available" : "Not Available" %></td>
     <td>
-      <!-- Submit the reservation form -->
       <form action="reserve-rooms" method="post">
         <input type="hidden" name="action" value="reserve">
         <input type="hidden" name="room" value="<%= room.getId() %>">

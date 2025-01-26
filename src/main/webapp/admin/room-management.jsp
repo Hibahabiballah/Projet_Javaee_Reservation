@@ -12,90 +12,116 @@
       background-color: #f9f9f9;
       color: #333;
     }
-    h1, h2 {
+
+    h1 {
       text-align: center;
-      color: #4CAF50;
+      padding: 20px 0;
+      margin: 0;
+      color: #444;
+      background-color: #f3f3f3;
+      border-bottom: 1px solid #ddd;
     }
+
+    h2 {
+      text-align: center;
+      color: #007BFF;
+      margin-top: 20px;
+    }
+
     form {
       max-width: 500px;
       margin: 20px auto;
       padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
     }
+
     label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       font-weight: bold;
     }
+
     input[type="text"],
     input[type="number"],
     input[type="checkbox"] {
       width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
     }
+
     button {
-      background-color: #4CAF50;
+      background-color: #007BFF;
       color: white;
       border: none;
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
-      display: block;
       width: 100%;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: #45a049;
+      background-color: #0056b3;
     }
+
     table {
       width: 90%;
       margin: 20px auto;
       border-collapse: collapse;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       overflow: hidden;
     }
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-    th, td {
-      padding: 10px;
-      text-align: center;
-    }
-    th {
-      background-color: #4CAF50;
+
+    thead {
+      background-color: #007BFF;
       color: white;
     }
-    tr:nth-child(even) {
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:hover {
       background-color: #f2f2f2;
     }
-    .back-button {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .back-button a {
-      text-decoration: none;
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    .back-button a:hover {
-      background-color: #45a049;
-    }
+
     .actions form {
       display: inline;
     }
+
     .actions button {
       margin: 5px;
       width: auto;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -157,12 +183,12 @@
       <form action="rooms" method="post">
         <input type="hidden" name="action" value="delete">
         <input type="hidden" name="id" value="<%= room.getId() %>">
-        <button type="submit" style="background-color: #f44336;">Delete</button>
+        <button type="submit" style="background-color: #dc3545;">Delete</button>
       </form>
       <form action="rooms" method="get">
         <input type="hidden" name="action" value="edit">
         <input type="hidden" name="id" value="<%= room.getId() %>">
-        <button type="submit" style="background-color: #008CBA;">Edit</button>
+        <button type="submit" style="background-color: #007BFF;">Edit</button>
       </form>
     </td>
   </tr>
@@ -178,7 +204,7 @@
 </table>
 
 <div class="back-button">
-  <a href="../admin-dashboard.jsp">← Go Back to Menu</a>
+  <a href="../admin-dashboard.jsp">&larr; Go Back to Menu</a>
 </div>
 </body>
 </html>

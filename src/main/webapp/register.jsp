@@ -1,63 +1,74 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #28a745, #218838);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: #fff;
         }
 
         .register-container {
             background-color: #ffffff;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
             width: 400px;
+            color: #333;
         }
 
         h1 {
-            color: #333;
+            font-size: 28px;
+            color: #28a745;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         label {
             display: block;
-            text-align: left;
-            margin-bottom: 10px;
+            font-weight: bold;
+            margin-bottom: 8px;
             font-size: 14px;
-            color: #555;
+            text-align: left;
         }
 
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
+            box-sizing: border-box;
             font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #28a745;
+            outline: none;
         }
 
         button {
-            background-color: #28a745;
+            background: linear-gradient(135deg, #28a745, #218838);
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 20px;
+            border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
 
         button:hover {
-            background-color: #218838;
+            background: linear-gradient(135deg, #218838, #1e7e34);
         }
 
         a {
@@ -71,8 +82,9 @@
         }
 
         .error {
-            color: red;
+            color: #dc3545;
             margin-bottom: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -80,17 +92,12 @@
 <div class="register-container">
     <h1>Register</h1>
     <form action="register" method="post">
-        <div class="error">
-            <% String error = (String) request.getAttribute("error");
-                if (error != null) { %>
-            <p><%= error %></p>
-            <% } %>
-        </div>
+     
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
         <button type="submit">Register</button>
     </form>

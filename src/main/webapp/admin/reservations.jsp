@@ -5,55 +5,109 @@
 <head>
     <title>Reservations</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
         }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
+
+        h1 {
             text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            color: #444;
+            background-color: #f3f3f3;
+            border-bottom: 1px solid #ddd;
         }
-        th {
-            background-color: #f2f2f2;
-        }
+
         .back-button {
+            display: flex;
+            justify-content: center;
             margin: 20px 0;
         }
+
         .back-button a {
             text-decoration: none;
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
-            padding: 10px 15px;
+            padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
+
         .back-button a:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
+
         .success-message {
-            color: green;
+            color: #28a745;
             font-weight: bold;
+            text-align: center;
             margin-bottom: 20px;
         }
+
         .error-message {
-            color: red;
+            color: #dc3545;
             font-weight: bold;
+            text-align: center;
             margin-bottom: 20px;
         }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
         button {
-            background-color: #008CBA;
+            background-color: #17a2b8;
             color: white;
             border: none;
             padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #007BB5;
+            background-color: #117a8b;
+        }
+
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        form {
+            display: inline;
         }
     </style>
 </head>
@@ -62,7 +116,7 @@
 
 <!-- Functional Go Back Button -->
 <div class="back-button">
-    <a href="admin-dashboard.jsp">← Go Back to Menu</a>
+    <a href="admin-dashboard.jsp">&larr; Go Back to Menu</a>
 </div>
 
 <!-- Success or Error Messages -->

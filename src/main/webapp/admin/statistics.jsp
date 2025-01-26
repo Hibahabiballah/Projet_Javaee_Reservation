@@ -7,59 +7,88 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
+      color: #333;
     }
 
     .statistics-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 50px auto;
-      background: white;
+      background: #fff;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    h1, h2 {
-      color: #333;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
       text-align: center;
+      padding: 20px 0;
+      margin: 0;
+      color: #007BFF;
+      border-bottom: 2px solid #ddd;
+    }
+
+    h2 {
+      color: #444;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin: 10px 0;
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
       margin-top: 20px;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
-    table, th, td {
-      border: 1px solid #ddd;
+    thead {
+      background-color: #007BFF;
+      color: white;
     }
 
     th, td {
-      padding: 10px;
+      padding: 15px;
       text-align: center;
+      border-bottom: 1px solid #ddd;
     }
 
-    th {
+    tbody tr:hover {
       background-color: #f2f2f2;
     }
 
     a {
+      display: inline-block;
       text-decoration: none;
       background-color: #007BFF;
       color: white;
       padding: 10px 20px;
       border-radius: 5px;
-      display: inline-block;
-      margin-top: 20px;
+      font-size: 16px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      margin-top: 30px;
+      text-align: center;
     }
 
     a:hover {
       background-color: #0056b3;
+    }
+
+    .no-data {
+      text-align: center;
+      font-style: italic;
+      color: #999;
     }
   </style>
 </head>
@@ -93,7 +122,7 @@
     } else {
     %>
     <tr>
-      <td colspan="2">No data available.</td>
+      <td colspan="2" class="no-data">No data available</td>
     </tr>
     <%
       }
@@ -124,7 +153,7 @@
     } else {
     %>
     <tr>
-      <td colspan="2">No data available.</td>
+      <td colspan="2" class="no-data">No data available</td>
     </tr>
     <%
       }
@@ -155,7 +184,7 @@
     } else {
     %>
     <tr>
-      <td colspan="2">No data available.</td>
+      <td colspan="2" class="no-data">No data available</td>
     </tr>
     <%
       }
@@ -163,7 +192,7 @@
     </tbody>
   </table>
 
-  <a href="../admin-dashboard.jsp">← Back to Dashboard</a>
+  <a href="../admin-dashboard.jsp">&larr; Back to Dashboard</a>
 </div>
 </body>
 </html>
